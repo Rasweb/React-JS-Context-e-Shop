@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../contexts/CartContext";
 import { ShowProducts } from "./ShowProducts";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [cart, setCart] = useContext(CartContext);
+  const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
 
   useEffect(() => {
     if (products.length !== 0) return;
@@ -19,5 +22,19 @@ export const Products = () => {
     return <ShowProducts product={product} key={product.id}></ShowProducts>;
   });
 
-  return <>{isLoading ? <>loading...</> : <>{productsHtml}</>}</>;
+  return (
+    <>
+      {isLoading ? (
+        <>loading...</>
+      ) : (
+        <>
+          <div>
+            <p>Items in cart: {cart.length}</p>
+            <p>Total price: {totalPrice}</p>
+          </div>
+          {productsHtml}
+        </>
+      )}
+    </>
+  );
 };

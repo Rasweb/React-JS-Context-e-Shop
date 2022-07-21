@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { CartContext } from "../contexts/CartContext";
 import { StyledProductDiv } from "../styledComponents/StyledDiv";
 import { StyledProductsImg } from "../styledComponents/StyledImg";
 
@@ -15,6 +16,17 @@ export const Product = () => {
   });
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const [cart, setCart] = useContext(CartContext);
+
+  const addToCart = () => {
+    const tshirt = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+    };
+    setCart((currCart) => [...currCart, tshirt]);
+  };
 
   let params = useParams();
 
@@ -42,6 +54,7 @@ export const Product = () => {
             <Link to="/checkout">
               <button>To checkout</button>
             </Link>
+            <button onClick={addToCart}>Add to Cart</button>
           </StyledProductDiv>
         </div>
       )}
