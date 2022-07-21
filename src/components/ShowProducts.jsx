@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const ShowProducts = ({ product }) => {
   return (
     <li key={product.id} className="productsCont">
@@ -5,7 +7,9 @@ export const ShowProducts = ({ product }) => {
       <p>Category: {product.category}</p>
       <img src={product.image} alt={product.title} />
       <p>{product.price}</p>
-      <button>More info</button>
+      <Link to={`/products/${product.id}`} key={product.id}>
+        <button>More info</button>
+      </Link>
     </li>
   );
 };
