@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { StyledProductDiv } from "../styledComponents/StyledDiv";
+import { StyledProductsImg } from "../styledComponents/StyledImg";
 
 export const Product = () => {
   const [product, setProduct] = useState({
@@ -30,17 +32,17 @@ export const Product = () => {
         <>Loading...</>
       ) : (
         <div>
-          <div className="productCont">
+          <StyledProductDiv>
             <h3>{product.name}</h3>
             <p>Category: {product.category}</p>
-            <img src={product.image} alt={product.name} />
+            <StyledProductsImg src={product.image} alt={product.name} />
             <p>{product.price}</p>
             <p className="descCont">{product.description}</p>
             <button>Add to cart</button>
             <Link to="/checkout">
               <button>To checkout</button>
             </Link>
-          </div>
+          </StyledProductDiv>
         </div>
       )}
     </>

@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
-export const StyledLayoutUl = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-
+export const StyledProductDiv = styled.div`
+  text-align: center;
+  margin-right: 10%;
   // Ipad
   /* @media screen and (min-width: 768px) {
   } */
   // Desktop
   @media screen and (min-width: 1024px) {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 `;

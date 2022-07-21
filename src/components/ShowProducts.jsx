@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
+import { StyledProductsLi } from "../styledComponents/StyledLi";
+import { StyledProductsImg } from "../styledComponents/StyledImg";
+import { StyledProductsParagraph } from "../styledComponents/StyledParagraph";
 
 export const ShowProducts = ({ product }) => {
   return (
-    <li key={product.id} className="productsCont">
+    <StyledProductsLi key={product.id}>
       <h3>{product.title}</h3>
-      <p>Category: {product.category}</p>
-      <img src={product.image} alt={product.title} />
-      <p>{product.price}</p>
+      <StyledProductsParagraph>
+        Category: {product.category}
+      </StyledProductsParagraph>
+      <StyledProductsImg src={product.image} alt={product.title} />
+      <StyledProductsParagraph>{product.price}</StyledProductsParagraph>
       <Link to={`/products/${product.id}`} key={product.id}>
         <button>More info</button>
       </Link>
-    </li>
+    </StyledProductsLi>
   );
 };

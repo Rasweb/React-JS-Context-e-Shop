@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StyledLayoutUl = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+export const StyledProductsLi = styled.li`
+  width: 100%;
+  height: 30%;
   list-style: none;
 
   // Ipad
@@ -10,8 +10,7 @@ export const StyledLayoutUl = styled.ul`
   } */
   // Desktop
   @media screen and (min-width: 1024px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 26%;
+    height: 30%;
   }
 `;
