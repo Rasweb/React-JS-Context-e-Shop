@@ -12,3 +12,8 @@ export const StyledProductsImg = styled.img`
     height: 320px;
   }
 `;
+
+export const StyledCartImg = styled.image`
+  width: 100px;
+  height: 100px;
+`;

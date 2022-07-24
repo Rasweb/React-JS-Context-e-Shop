@@ -19,18 +19,6 @@ export const Product = () => {
 
   const [cart, setCart] = useContext(CartContext);
 
-  const addToCart = () => {
-    const tshirt = {
-      id: product.id,
-      name: product.title,
-      price: product.price,
-    };
-    setCart((currCart) => [...currCart, tshirt]);
-    if (cart) {
-      console.log(cart);
-    }
-  };
-
   let params = useParams();
 
   useEffect(() => {
@@ -40,6 +28,19 @@ export const Product = () => {
       setProduct(data.data);
     });
   });
+
+  const addToCart = () => {
+    const tshirt = {
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      image: product.image,
+    };
+    setCart((currCart) => [...currCart, tshirt]);
+    if (cart) {
+      console.log(cart);
+    }
+  };
 
   return (
     <>
