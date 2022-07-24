@@ -1,5 +1,6 @@
 import { StyledLayoutUl } from "../styledComponents/StyledUl";
 import { Link, Outlet } from "react-router-dom";
+import { Cart } from "./Cart";
 
 export const Layout = () => {
   return (
@@ -15,6 +16,9 @@ export const Layout = () => {
             </li>
             <li>
               <Link to="/checkout">Checkout</Link>
+            </li>
+            <li>
+              <Cart></Cart>
             </li>
           </StyledLayoutUl>
         </nav>

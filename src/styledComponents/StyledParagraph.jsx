@@ -12,3 +12,7 @@ export const StyledProductsParagraph = styled.p`
     width: 90%;
   }
 `;
+
+export const StyledCartParagraph = styled.p`
+  width: 100%;
+`;

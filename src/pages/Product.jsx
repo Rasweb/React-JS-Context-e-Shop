@@ -22,10 +22,13 @@ export const Product = () => {
   const addToCart = () => {
     const tshirt = {
       id: product.id,
-      name: product.name,
+      name: product.title,
       price: product.price,
     };
     setCart((currCart) => [...currCart, tshirt]);
+    if (cart) {
+      console.log(cart);
+    }
   };
 
   let params = useParams();
@@ -50,7 +53,6 @@ export const Product = () => {
             <StyledProductsImg src={product.image} alt={product.name} />
             <p>{product.price}</p>
             <p className="descCont">{product.description}</p>
-            <button>Add to cart</button>
             <Link to="/checkout">
               <button>To checkout</button>
             </Link>
