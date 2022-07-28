@@ -16,3 +16,7 @@ export const StyledProductsParagraph = styled.p`
 export const StyledCartParagraph = styled.p`
   width: 100%;
 `;
+
+export const StyledCartProductP = styled.p`
+  margin: 4%;
+`;

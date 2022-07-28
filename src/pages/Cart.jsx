@@ -3,7 +3,11 @@ import { CartContext } from "../contexts/CartContext";
 import { StyledCartDiv } from "../styledComponents/StyledDiv";
 import { StyledModalDiv } from "../styledComponents/StyledDiv";
 import { StyledCartParagraph } from "../styledComponents/StyledParagraph";
-import { StyledProductsImg } from "../styledComponents/StyledImg";
+import { StyledCartImg } from "../styledComponents/StyledImg";
+import { StyledCartProduct } from "../styledComponents/StyledDiv";
+import { StyledCartProductP } from "../styledComponents/StyledParagraph";
+import { StyledCartContainer } from "../styledComponents/StyledDiv";
+import { StyledCartButton } from "../styledComponents/StyledButtons";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
@@ -24,11 +28,17 @@ export const Cart = () => {
   const carts = cart.map((item) => {
     return (
       <>
-        <div key={item.id}>
-          <p>{item.name}</p>
-          <p>{item.price}</p>
-          <StyledProductsImg src={item.image} alt={item.name} />
-        </div>
+        <StyledCartContainer>
+          <StyledCartProduct key={item.id}>
+            <StyledCartImg src={item.image} alt={item.name} />
+            <StyledCartProductP>{item.name}</StyledCartProductP>
+          </StyledCartProduct>
+          <StyledCartProduct>
+            <button>+</button>
+            <p>${item.price}</p>
+            <button>-</button>
+          </StyledCartProduct>
+        </StyledCartContainer>
       </>
     );
   });
@@ -37,7 +47,7 @@ export const Cart = () => {
     <>
       {showCart ? (
         <StyledModalDiv>
-          <button onClick={cartToggle}>Close Cart</button>
+          <StyledCartButton onClick={cartToggle}>Close Cart</StyledCartButton>
           <StyledCartDiv>{carts}</StyledCartDiv>
           <StyledCartDiv>
             <StyledCartParagraph>
@@ -48,8 +58,8 @@ export const Cart = () => {
         </StyledModalDiv>
       ) : (
         <div>
-          <button onClick={cartToggle}>Open Cart</button>
-          <h2>Test cart</h2>
+          <button onClick={cartToggle}>Open Cart {cart.length}</button>
+          {/* align-self: end */}
         </div>
       )}
     </>

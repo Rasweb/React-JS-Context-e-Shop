@@ -28,7 +28,7 @@ export const ShowProducts = ({ product }) => {
         Category: {product.category}
       </StyledProductsParagraph>
       <StyledProductsImg src={product.image} alt={product.title} />
-      <StyledProductsParagraph>{product.price}</StyledProductsParagraph>
+      <StyledProductsParagraph>${product.price}</StyledProductsParagraph>
       <Link to={`/products/${product.id}`} key={product.id}>
         <button>More info</button>
       </Link>

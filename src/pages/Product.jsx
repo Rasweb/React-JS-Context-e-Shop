@@ -52,7 +52,7 @@ export const Product = () => {
             <h3>{product.name}</h3>
             <p>Category: {product.category}</p>
             <StyledProductsImg src={product.image} alt={product.name} />
-            <p>{product.price}</p>
+            <p>${product.price}</p>
             <p className="descCont">{product.description}</p>
             <Link to="/checkout">
               <button>To checkout</button>
