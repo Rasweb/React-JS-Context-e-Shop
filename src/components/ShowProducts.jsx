@@ -4,6 +4,7 @@ import { StyledProductsImg } from "../styledComponents/StyledImg";
 import { StyledProductsParagraph } from "../styledComponents/StyledParagraph";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
+import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 
 export const ShowProducts = ({ product }) => {
   const [cart, setCart] = useContext(CartContext);
@@ -28,11 +29,14 @@ export const ShowProducts = ({ product }) => {
         Category: {product.category}
       </StyledProductsParagraph>
       <StyledProductsImg src={product.image} alt={product.title} />
-      <StyledProductsParagraph>${product.price}</StyledProductsParagraph>
+      {/* &#8364; euro sign */}
+      <StyledProductsParagraph>&#8364;{product.price}</StyledProductsParagraph>
       <Link to={`/products/${product.id}`} key={product.id}>
-        <button>More info</button>
+        <StyledShowProductsBtn>More info</StyledShowProductsBtn>
       </Link>
-      <button onClick={addToCart}>Add to cart</button>
+      <StyledShowProductsBtn onClick={addToCart}>
+        Add to cart
+      </StyledShowProductsBtn>
     </StyledProductsLi>
   );
 };
