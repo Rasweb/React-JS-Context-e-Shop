@@ -13,6 +13,7 @@ export const Product = () => {
     price: 0,
     image: "",
     category: "",
+    quantity: 0,
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ export const Product = () => {
       name: product.title,
       price: product.price,
       image: product.image,
+      quantity: 1,
     };
     setCart((currCart) => [...currCart, tshirt]);
     if (cart) {

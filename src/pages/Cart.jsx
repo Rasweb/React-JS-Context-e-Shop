@@ -13,7 +13,7 @@ import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
-  const [cart] = useContext(CartContext);
+  const [cart, setCart] = useContext(CartContext);
 
   const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
 
@@ -27,6 +27,54 @@ export const Cart = () => {
     }
   };
 
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+    console.log("Removed item from cart");
+  };
+
+  // Increase function, will always double the price.
+  // More code is required
+  const increase = (id) => {
+    //    const increaseCart = cart.filter((item) => item.id === id);
+    const incCart = cart.map((item) => {
+      if (item.id === id) {
+        const updateCart = {
+          ...item,
+          quantity: item.quantity + 1,
+          price: item.price + item.price,
+        };
+        return updateCart;
+      }
+      return item;
+    });
+    setCart(incCart);
+  };
+
+  // Decrease function, can only decrease the current price.¨
+  // More code is required.
+  const decrease = (id) => {
+    const decCart = cart.map((item) => {
+      if (item.id === id) {
+        const updateCart = {
+          ...item,
+          quantity: item.quantity - 1,
+          price: item.price - item.price,
+        };
+        // If quantity === 0 remove from cart
+        // More code is required
+        // if (item.quantity === 0) {
+        //   const newCart = cart.filter((item) => item.id !== id);
+        //   setCart(newCart);
+        // }
+
+        return updateCart;
+      }
+      return item;
+    });
+    setCart(decCart);
+  };
+
   const carts = cart.map((item) => {
     return (
       <>
@@ -36,11 +84,20 @@ export const Cart = () => {
             <StyledCartProductP>{item.name}</StyledCartProductP>
           </StyledCartProduct>
           <StyledCartProduct>
-            <StyledCartControllBtn>-</StyledCartControllBtn>
+            {/* Minus symbol */}
+            <StyledCartControllBtn onClick={() => decrease(item.id)}>
+              &#8722;
+            </StyledCartControllBtn>
             <p>&#8364;{item.price}</p>
-            <StyledCartControllBtn>&#43;</StyledCartControllBtn>
+            {/* Plus symbol */}
+            <StyledCartControllBtn onClick={() => increase(item.id)}>
+              &#43;
+            </StyledCartControllBtn>
+            <p>{item.quantity}</p>
             {/* Temporary button */}
-            <StyledShowProductsBtn>Remove</StyledShowProductsBtn>
+            <StyledShowProductsBtn onClick={() => removeFromCart(item.id)}>
+              Remove
+            </StyledShowProductsBtn>
           </StyledCartProduct>
         </StyledCartContainer>
       </>
@@ -57,7 +114,9 @@ export const Cart = () => {
             <StyledCartParagraph>
               Items in cart: {cart.length}
             </StyledCartParagraph>
-            <StyledCartParagraph>Total price: {totalPrice}</StyledCartParagraph>
+            <StyledCartParagraph>
+              Total price: &#8364;{totalPrice}
+            </StyledCartParagraph>
           </StyledCartDiv>
         </StyledModalDiv>
       ) : (
