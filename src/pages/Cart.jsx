@@ -9,6 +9,7 @@ import { StyledCartProductP } from "../styledComponents/StyledParagraph";
 import { StyledCartContainer } from "../styledComponents/StyledDiv";
 import { StyledCartButton } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtn } from "../styledComponents/StyledButtons";
+import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
@@ -38,6 +39,8 @@ export const Cart = () => {
             <StyledCartControllBtn>-</StyledCartControllBtn>
             <p>&#8364;{item.price}</p>
             <StyledCartControllBtn>&#43;</StyledCartControllBtn>
+            {/* Temporary button */}
+            <StyledShowProductsBtn>Remove</StyledShowProductsBtn>
           </StyledCartProduct>
         </StyledCartContainer>
       </>
