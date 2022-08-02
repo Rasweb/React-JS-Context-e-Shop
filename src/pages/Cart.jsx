@@ -10,6 +10,7 @@ import { StyledCartContainer } from "../styledComponents/StyledDiv";
 import { StyledCartButton } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtn } from "../styledComponents/StyledButtons";
 import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
+import { StyledCartControllBtnDisabled } from "../styledComponents/StyledButtons";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
@@ -56,6 +57,13 @@ export const Cart = () => {
   const decrease = (id) => {
     const decCart = cart.map((item) => {
       if (item.id === id) {
+        if (item.price === 0) {
+          const updateCart = {
+            ...item,
+            quantity: 0,
+          };
+          return updateCart;
+        }
         if (item.quantity >= 1) {
           const updateCart = {
             ...item,
@@ -80,9 +88,18 @@ export const Cart = () => {
           </StyledCartProduct>
           <StyledCartProduct>
             {/* Minus symbol */}
-            <StyledCartControllBtn onClick={() => decrease(item.id)}>
-              &#8722;
-            </StyledCartControllBtn>
+            {item.quantity === 1 ? (
+              <StyledCartControllBtnDisabled
+                disabled
+                onClick={() => decrease(item.id)}
+              >
+                &#8722;
+              </StyledCartControllBtnDisabled>
+            ) : (
+              <StyledCartControllBtn onClick={() => decrease(item.id)}>
+                &#8722;
+              </StyledCartControllBtn>
+            )}
             <p>&#8364;{item.price}</p>
             {/* Plus symbol */}
             <StyledCartControllBtn onClick={() => increase(item.id)}>

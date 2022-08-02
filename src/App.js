@@ -6,6 +6,7 @@ import { Products } from "./components/Products";
 import { Product } from "./pages/Product";
 import { Error } from "./pages/Error";
 import { CartProvider } from "./contexts/CartContext";
+import { Checkout } from "./pages/Checkout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route index element={<Home />}></Route>
             <Route path="/products/" element={<Products />}></Route>
             <Route path="/products/:id" element={<Product />}></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
             <Route path="*" element={<Error />}></Route>
           </Route>
         </Routes>

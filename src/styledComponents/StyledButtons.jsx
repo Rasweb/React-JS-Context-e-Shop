@@ -11,6 +11,11 @@ export const StyledCartControllBtn = styled.button`
   cursor: pointer;
 `;
 
+export const StyledCartControllBtnDisabled = styled(StyledCartControllBtn)`
+  background-color: #cccccc;
+  color: #666666;
+`;
+
 export const StyledShowProductsBtn = styled.button`
   border: 1px solid black;
   width: 100px;
