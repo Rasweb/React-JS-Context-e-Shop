@@ -10,6 +10,7 @@ export const StyledProductsParagraph = styled.p`
   @media screen and (min-width: 1024px) {
     margin: 10px;
     width: 90%;
+    margin-top: 16%;
   }
 `;
 

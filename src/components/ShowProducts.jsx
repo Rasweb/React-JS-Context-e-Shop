@@ -5,6 +5,7 @@ import { StyledProductsParagraph } from "../styledComponents/StyledParagraph";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
+import { StyledHeadlineThree } from "../styledComponents/StyledHeadline";
 
 export const ShowProducts = ({ product }) => {
   const [cart, setCart] = useContext(CartContext);
@@ -25,7 +26,7 @@ export const ShowProducts = ({ product }) => {
 
   return (
     <StyledProductsLi key={product.id}>
-      <h3>{product.title}</h3>
+      <StyledHeadlineThree>{product.title}</StyledHeadlineThree>
       <StyledProductsParagraph>
         Category: {product.category}
       </StyledProductsParagraph>
