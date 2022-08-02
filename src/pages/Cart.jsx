@@ -56,19 +56,14 @@ export const Cart = () => {
   const decrease = (id) => {
     const decCart = cart.map((item) => {
       if (item.id === id) {
-        const updateCart = {
-          ...item,
-          quantity: item.quantity - 1,
-          price: item.price - item.price,
-        };
-        // If quantity === 0 remove from cart
-        // More code is required
-        // if (item.quantity === 0) {
-        //   const newCart = cart.filter((item) => item.id !== id);
-        //   setCart(newCart);
-        // }
-
-        return updateCart;
+        if (item.quantity >= 1) {
+          const updateCart = {
+            ...item,
+            quantity: item.quantity - 1,
+            price: item.price - item.price,
+          };
+          return updateCart;
+        }
       }
       return item;
     });
