@@ -14,3 +14,8 @@ export const StyledProductsLi = styled.li`
     height: 30%;
   }
 `;
+
+export const StyledCheckoutLi = styled.li`
+  list-style: none;
+  border-top: 1px solid black;
+`;

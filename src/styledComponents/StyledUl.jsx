@@ -15,3 +15,8 @@ export const StyledLayoutUl = styled.ul`
     justify-content: center;
   }
 `;
+
+export const StyledCheckoutUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;

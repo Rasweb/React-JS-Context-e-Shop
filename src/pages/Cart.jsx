@@ -11,6 +11,7 @@ import { StyledCartButton } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtn } from "../styledComponents/StyledButtons";
 import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtnDisabled } from "../styledComponents/StyledButtons";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
@@ -129,6 +130,9 @@ export const Cart = () => {
             <StyledCartParagraph>
               Total price: &#8364;{totalPrice}
             </StyledCartParagraph>
+            <Link to={`/checkout`}>
+              <StyledShowProductsBtn>To checkout</StyledShowProductsBtn>
+            </Link>
           </StyledCartDiv>
         </StyledModalDiv>
       ) : (
