@@ -17,5 +17,6 @@ export const StyledProductsLi = styled.li`
 
 export const StyledCheckoutLi = styled.li`
   list-style: none;
-  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 50%;
 `;

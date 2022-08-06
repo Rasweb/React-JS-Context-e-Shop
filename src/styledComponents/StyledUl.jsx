@@ -17,6 +17,9 @@ export const StyledLayoutUl = styled.ul`
 `;
 
 export const StyledCheckoutUl = styled.ul`
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;

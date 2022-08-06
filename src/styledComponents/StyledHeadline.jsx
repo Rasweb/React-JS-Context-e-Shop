@@ -5,3 +5,7 @@ export const StyledHeadlineThree = styled.h3`
   width: 90%;
   border-top: 1px solid black;
 `;
+
+export const StyledCheckoutHeadline = styled.h2`
+  text-align: center;
+`;

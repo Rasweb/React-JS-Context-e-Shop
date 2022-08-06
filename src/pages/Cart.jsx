@@ -131,7 +131,9 @@ export const Cart = () => {
               Total price: &#8364;{totalPrice}
             </StyledCartParagraph>
             <Link to={`/checkout`}>
-              <StyledShowProductsBtn>To checkout</StyledShowProductsBtn>
+              <StyledShowProductsBtn onClick={cartToggle}>
+                To checkout
+              </StyledShowProductsBtn>
             </Link>
           </StyledCartDiv>
         </StyledModalDiv>
