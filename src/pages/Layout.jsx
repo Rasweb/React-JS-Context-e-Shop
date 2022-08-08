@@ -15,9 +15,6 @@ export const Layout = () => {
               <Link to="/products">Products</Link>
             </li>
             <li>
-              <Link to="/checkout">Checkout</Link>
-            </li>
-            <li>
               <Cart></Cart>
             </li>
           </StyledLayoutUl>

@@ -20,3 +20,7 @@ export const StyledCheckoutLi = styled.li`
   border-bottom: 1px solid black;
   width: 50%;
 `;
+
+export const StyledLayoutLi = styled.li`
+  display: none;
+`;

@@ -7,6 +7,7 @@ import { Product } from "./pages/Product";
 import { Error } from "./pages/Error";
 import { CartProvider } from "./contexts/CartContext";
 import { Checkout } from "./pages/Checkout";
+import { ThankYou } from "./pages/ThankYou";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/products/" element={<Products />}></Route>
             <Route path="/products/:id" element={<Product />}></Route>
             <Route path="/checkout" element={<Checkout />}></Route>
+            <Route path="/thankyou" element={<ThankYou />}></Route>
             <Route path="*" element={<Error />}></Route>
           </Route>
         </Routes>
