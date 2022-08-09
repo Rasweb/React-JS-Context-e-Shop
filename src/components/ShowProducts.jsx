@@ -16,6 +16,7 @@ export const ShowProducts = ({ product }) => {
       name: product.title,
       price: product.price,
       image: product.image,
+      orgPrice: product.price,
       quantity: 1,
     };
     setCart((currCart) => [...currCart, tshirt]);

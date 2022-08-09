@@ -35,51 +35,49 @@ export const Cart = () => {
     console.log("Removed item from cart");
   };
 
-  // Increase function, will always double the price.
-  // More code is required
-  const increase = (id) => {
-    //    const increaseCart = cart.filter((item) => item.id === id);
-    const incCart = cart.map((item) => {
-      if (item.id === id) {
-        const updateCart = {
+  // Increase quantity in cart using index.
+  const increase = (index, id) => {
+    const increaseCart = [...cart];
+
+    increaseCart[index].quantity++;
+
+    setCart(increaseCart);
+
+    const ne = cart.map((item) => {
+      if ((item.id === id) & (item.quantity >= 1)) {
+        const ls = {
           ...item,
-          quantity: item.quantity + 1,
-          price: item.price + item.price,
+          price: item.price + item.orgPrice,
         };
-        return updateCart;
+        return ls;
       }
       return item;
     });
-    setCart(incCart);
+    setCart(ne);
   };
 
-  // Decrease function, can only decrease the current price.¨
-  // More code is required.
-  const decrease = (id) => {
-    const decCart = cart.map((item) => {
-      if (item.id === id) {
-        if (item.price === 0) {
-          const updateCart = {
-            ...item,
-            quantity: 0,
-          };
-          return updateCart;
-        }
-        if (item.quantity >= 1) {
-          const updateCart = {
-            ...item,
-            quantity: item.quantity - 1,
-            price: item.price - item.price,
-          };
-          return updateCart;
-        }
+  // decrease quantity in cart using index.
+  const decrease = (index, id) => {
+    const decreaseCart = [...cart];
+
+    decreaseCart[index].quantity--;
+
+    setCart(decreaseCart);
+
+    const decreasePrice = cart.map((decItem) => {
+      if ((decItem.id === id) & (decItem.quantity >= 1)) {
+        const decCart = {
+          ...decItem,
+          price: decItem.price - decItem.orgPrice,
+        };
+        return decCart;
       }
-      return item;
+      return decItem;
     });
-    setCart(decCart);
+    setCart(decreasePrice);
   };
 
-  const carts = cart.map((item) => {
+  const carts = cart.map((item, index) => {
     return (
       <>
         <StyledCartContainer>
@@ -92,18 +90,18 @@ export const Cart = () => {
             {item.quantity === 1 ? (
               <StyledCartControllBtnDisabled
                 disabled
-                onClick={() => decrease(item.id)}
+                onClick={() => decrease(index)}
               >
                 &#8722;
               </StyledCartControllBtnDisabled>
             ) : (
-              <StyledCartControllBtn onClick={() => decrease(item.id)}>
+              <StyledCartControllBtn onClick={() => decrease(index, item.id)}>
                 &#8722;
               </StyledCartControllBtn>
             )}
             <p>&#8364;{item.price}</p>
             {/* Plus symbol */}
-            <StyledCartControllBtn onClick={() => increase(item.id)}>
+            <StyledCartControllBtn onClick={() => increase(index, item.id)}>
               &#43;
             </StyledCartControllBtn>
             <p>{item.quantity}</p>

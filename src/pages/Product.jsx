@@ -35,9 +35,11 @@ export const Product = () => {
       id: product.id,
       name: product.title,
       price: product.price,
+      orgPrice: product.price,
       image: product.image,
       quantity: 1,
     };
+
     setCart((currCart) => [...currCart, tshirt]);
     if (cart) {
       console.log(cart);
