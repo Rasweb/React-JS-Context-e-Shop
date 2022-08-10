@@ -23,3 +23,7 @@ export const StyledCheckoutUl = styled.ul`
   flex-direction: column;
   align-items: center;
 `;
+
+export const StyledHomeUl = styled.ul`
+  list-style: decimal-leading-zero;
+`;

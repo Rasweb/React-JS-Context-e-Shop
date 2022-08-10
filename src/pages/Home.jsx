@@ -1,3 +1,24 @@
+import { StyledHomeUl } from "../styledComponents/StyledUl";
+
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>Welcome to my fake e-shop</h1>
+      <p>Press products to begin</p>
+      <h2>This e-shop is created using React js</h2>
+      <h4>On this site you can:</h4>
+      <StyledHomeUl>
+        <li>Load products from https://fakestoreapi.com/</li>
+        <li>View more info about a specific product.</li>
+        <li>Open and close the shopping cart</li>
+        <li>Add products to the shopping cart.</li>
+        <li>Increase and decrease quantity/price of products in cart</li>
+        <li>See how many products in current cart</li>
+        <li>See total price of all products in cart</li>
+        <li>Remove specific product from cart</li>
+        <li>Go to checkout from cart</li>
+        <li>Make a fake payment and order</li>
+      </StyledHomeUl>
+    </div>
+  );
 };
