@@ -26,13 +26,12 @@ export const StyledModalDiv = styled.div`
   justify-content: center;
   width: 66vw;
   margin: auto;
-  background-color: #fefefe;
+
   border: 1px solid #888;
   @media screen and (min-width: 1024px) {
     justify-content: center;
     width: 22vw;
     margin: auto;
-    background-color: #fefefe;
     border: 1px solid #888;
   }
 `;
