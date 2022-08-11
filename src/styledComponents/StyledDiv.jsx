@@ -24,7 +24,7 @@ export const StyledModalDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 66vw;
+  width: 80vw;
   margin: auto;
 
   border: 1px solid #888;
@@ -39,6 +39,7 @@ export const StyledModalDiv = styled.div`
 export const StyledCartProduct = styled.div`
   display: flex;
   flex-direction: row;
+  width: 42vh;
 `;
 
 export const StyledCartContainer = styled.div`
@@ -48,4 +49,15 @@ export const StyledCartContainer = styled.div`
 export const StyledCartButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const StyledCheckoutDiv = styled(StyledCartProduct)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const StyledProductBtnDiv = styled.div`
+  display: flex;
+  justify-content: center;
 `;

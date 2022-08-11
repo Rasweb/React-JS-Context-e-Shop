@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { StyledCheckoutImg } from "../styledComponents/StyledImg";
 import { Link } from "react-router-dom";
+import { StyledThankYouBtn } from "../styledComponents/StyledButtons";
 
 export const ThankYou = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -16,7 +17,7 @@ export const ThankYou = () => {
     return (
       <div key={product.id}>
         <h3>{product.name}</h3>
-        <p>&#8364;{product.price}</p>
+        <h4>&#8364;{product.price}</h4>
         <StyledCheckoutImg src={product.image} alt={product.name} />
       </div>
     );
@@ -26,10 +27,10 @@ export const ThankYou = () => {
     <>
       <h1>Thank you for your order</h1>
       <h2>Total price: &#8364;{totalPrice}</h2>
-      {boughtCart}
       <Link to={"/"}>
-        <button onClick={clearCart}>Back to home</button>
+        <StyledThankYouBtn onClick={clearCart}>Back to home</StyledThankYouBtn>
       </Link>
+      {boughtCart}
     </>
   );
 };

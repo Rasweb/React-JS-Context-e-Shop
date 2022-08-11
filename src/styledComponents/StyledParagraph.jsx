@@ -20,4 +20,10 @@ export const StyledCartParagraph = styled.p`
 
 export const StyledCartProductP = styled.p`
   margin: 4%;
+  width: 46vw;
+`;
+
+export const StyledCheckoutP = styled.p`
+  margin-top: -1%;
+  margin-bottom: 6%;
 `;

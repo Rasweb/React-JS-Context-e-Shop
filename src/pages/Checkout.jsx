@@ -6,6 +6,12 @@ import { StyledCheckoutUl } from "../styledComponents/StyledUl";
 import { StyledCheckoutHeadline } from "../styledComponents/StyledHeadline";
 import { StyledCartButtonDiv } from "../styledComponents/StyledDiv";
 import { Link } from "react-router-dom";
+import { StyledCheckoutSubmitInput } from "../styledComponents/StyledInputs";
+import { StyledCartProductP } from "../styledComponents/StyledParagraph";
+import { StyledCartProduct } from "../styledComponents/StyledDiv";
+import { StyledCheckoutDiv } from "../styledComponents/StyledDiv";
+import { StyledCheckoutInputs } from "../styledComponents/StyledInputs";
+import { StyledCheckoutForm } from "../styledComponents/StyledForms";
 
 export const Checkout = () => {
   const [cart] = useContext(CartContext);
@@ -14,10 +20,14 @@ export const Checkout = () => {
   const checkoutCart = cart.map((product) => {
     return (
       <StyledCheckoutLi key={product.id}>
-        <StyledCheckoutImg src={product.image} alt={product.name} />
-        <h3>{product.name}</h3>
-        <p>{product.quantity}</p>
-        <p>&#8364;{product.price}</p>
+        <StyledCartProduct>
+          <StyledCheckoutImg src={product.image} alt={product.name} />
+          <StyledCartProductP>{product.name}</StyledCartProductP>
+        </StyledCartProduct>
+        <StyledCheckoutDiv>
+          <p>Cost: &#8364;{Math.round(product.price)}</p>
+          <p>Quantity: {product.quantity}</p>
+        </StyledCheckoutDiv>
       </StyledCheckoutLi>
     );
   });
@@ -46,11 +56,11 @@ export const Checkout = () => {
         <StyledCheckoutHeadline>Checkout</StyledCheckoutHeadline>
         <StyledCheckoutUl>{checkoutCart}</StyledCheckoutUl>
         <div>
-          <form onSubmit={handleSubmit}>
+          <StyledCheckoutForm onSubmit={handleSubmit}>
             <div>
               <label>
                 Email Address
-                <input
+                <StyledCheckoutInputs
                   type="email"
                   name="Eaddr"
                   placeholder="johndoe@example.com"
@@ -61,7 +71,7 @@ export const Checkout = () => {
               <br />
               <label>
                 Postal Number
-                <input
+                <StyledCheckoutInputs
                   type="number"
                   name="postNum"
                   placeholder="123 45"
@@ -85,15 +95,18 @@ export const Checkout = () => {
                 <input type="radio" id="parcel" name="shipping" />
               </label>
             </StyledCartButtonDiv>
-            <p> Total price: &#8364;{totalPrice + 4}</p>
+            <p> Total price: &#8364;{Math.round(totalPrice + 4)}</p>
             {validation ? (
               <Link to={`/thankyou`}>
-                <input type="submit" value="Confirm order" />
+                <StyledCheckoutSubmitInput
+                  type="submit"
+                  value="Confirm order"
+                />
               </Link>
             ) : (
               <b>Don't leave the input fields empty</b>
             )}
-          </form>
+          </StyledCheckoutForm>
         </div>
       </div>
     </>

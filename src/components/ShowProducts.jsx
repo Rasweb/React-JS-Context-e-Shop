@@ -33,7 +33,9 @@ export const ShowProducts = ({ product }) => {
       </StyledProductsParagraph>
       <StyledProductsImg src={product.image} alt={product.title} />
       {/* &#8364; euro sign */}
-      <StyledProductsParagraph>&#8364;{product.price}</StyledProductsParagraph>
+      <StyledProductsParagraph>
+        &#8364;{Math.round(product.price)}
+      </StyledProductsParagraph>
       <Link to={`/products/${product.id}`} key={product.id}>
         <StyledShowProductsBtn>More info</StyledShowProductsBtn>
       </Link>

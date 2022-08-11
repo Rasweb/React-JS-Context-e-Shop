@@ -16,9 +16,12 @@ export const StyledProductsLi = styled.li`
 `;
 
 export const StyledCheckoutLi = styled.li`
+  //border: 1px solid #e7f6f2;
+  border-bottom: 1px solid #e7f6f2;
   list-style: none;
-  border-bottom: 1px solid black;
-  width: 50%;
+  margin-left: -8%;
+  margin-right: 2%;
+  margin-bottom: 4%;
 `;
 
 export const StyledLayoutLi = styled.li`

@@ -47,7 +47,7 @@ export const Cart = () => {
       if ((item.id === id) & (item.quantity >= 1)) {
         const ls = {
           ...item,
-          price: item.price + item.orgPrice,
+          price: Math.round(item.price) + Math.round(item.orgPrice),
         };
         return ls;
       }
@@ -68,7 +68,7 @@ export const Cart = () => {
       if ((decItem.id === id) & (decItem.quantity >= 1)) {
         const decCart = {
           ...decItem,
-          price: decItem.price - decItem.orgPrice,
+          price: Math.round(decItem.price) - Math.round(decItem.orgPrice),
         };
         return decCart;
       }
@@ -99,17 +99,16 @@ export const Cart = () => {
                 &#8722;
               </StyledCartControllBtn>
             )}
-            <p>&#8364;{item.price}</p>
+            <p>&#8364;{Math.round(item.price)}</p>
             {/* Plus symbol */}
             <StyledCartControllBtn onClick={() => increase(index, item.id)}>
               &#43;
             </StyledCartControllBtn>
-            <p>{item.quantity}</p>
-            {/* Temporary button */}
-            <StyledShowProductsBtn onClick={() => removeFromCart(item.id)}>
-              Remove
-            </StyledShowProductsBtn>
+            <p>Quantity: {item.quantity}</p>
           </StyledCartProduct>
+          <StyledShowProductsBtn onClick={() => removeFromCart(item.id)}>
+            Remove
+          </StyledShowProductsBtn>
         </StyledCartContainer>
       </>
     );
@@ -119,26 +118,45 @@ export const Cart = () => {
     <>
       {showCart ? (
         <StyledModalDiv>
-          <StyledCartButton onClick={cartToggle}>Close Cart</StyledCartButton>
+          <StyledCartButton onClick={cartToggle}>Close</StyledCartButton>
           <StyledCartDiv>{carts}</StyledCartDiv>
           <StyledCartDiv>
-            <StyledCartParagraph>
-              Items in cart: {cart.length}
-            </StyledCartParagraph>
-            <StyledCartParagraph>
-              Total price: &#8364;{totalPrice}
-            </StyledCartParagraph>
-            <Link to={`/checkout`}>
-              <StyledShowProductsBtn onClick={cartToggle}>
-                To checkout
-              </StyledShowProductsBtn>
-            </Link>
+            {cart.length >= 1 ? (
+              <>
+                <StyledCartParagraph>
+                  Items in cart: {cart.length}
+                </StyledCartParagraph>
+                <StyledCartParagraph>
+                  Total price: &#8364;{totalPrice}
+                </StyledCartParagraph>
+                <Link to={`/checkout`}>
+                  <StyledShowProductsBtn onClick={cartToggle}>
+                    To checkout
+                  </StyledShowProductsBtn>
+                </Link>
+              </>
+            ) : (
+              <Link to={`/products`}>
+                <p>Cart is empty</p>
+                <StyledShowProductsBtn onClick={cartToggle}>
+                  Add products
+                </StyledShowProductsBtn>
+              </Link>
+            )}
           </StyledCartDiv>
         </StyledModalDiv>
       ) : (
-        <div>
-          <button onClick={cartToggle}>Open Cart {cart.length}</button>
-        </div>
+        <>
+          {cart.length >= 1 ? (
+            <div>
+              <button onClick={cartToggle}>Cart, {cart.length}</button>
+            </div>
+          ) : (
+            <div>
+              <button onClick={cartToggle}>Cart</button>
+            </div>
+          )}
+        </>
       )}
     </>
   );

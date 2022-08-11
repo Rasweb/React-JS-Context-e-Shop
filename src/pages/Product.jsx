@@ -4,6 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { StyledProductDiv } from "../styledComponents/StyledDiv";
 import { StyledProductsImg } from "../styledComponents/StyledImg";
+import { StyledProductBtn } from "../styledComponents/StyledButtons";
+import { StyledProductBtnDiv } from "../styledComponents/StyledDiv";
+import { StyledProductBackBtn } from "../styledComponents/StyledButtons";
 
 export const Product = () => {
   const [product, setProduct] = useState({
@@ -33,7 +36,7 @@ export const Product = () => {
   const addToCart = () => {
     const tshirt = {
       id: product.id,
-      name: product.title,
+      title: product.title,
       price: product.price,
       orgPrice: product.price,
       image: product.image,
@@ -53,16 +56,25 @@ export const Product = () => {
       ) : (
         <div>
           <StyledProductDiv>
-            <h3>{product.name}</h3>
+            <h3>{product.title}</h3>
             <p>Category: {product.category}</p>
-            <StyledProductsImg src={product.image} alt={product.name} />
-            <p>&#8364;{product.price}</p>
+            <StyledProductsImg src={product.image} alt={product.title} />
+            <p>&#8364;{Math.round(product.price)}</p>
             <p className="descCont">{product.description}</p>
-            <Link to="/checkout">
-              <button>To checkout</button>
-            </Link>
-            <button onClick={addToCart}>Add to Cart</button>
+            {cart.length >= 1 ? (
+              <Link to="/checkout">
+                <StyledProductBtn>To checkout</StyledProductBtn>
+              </Link>
+            ) : (
+              <></>
+            )}
+            <StyledProductBtn onClick={addToCart}>Add to Cart</StyledProductBtn>
           </StyledProductDiv>
+          <StyledProductBtnDiv>
+            <Link to="/products">
+              <StyledProductBackBtn>Back</StyledProductBackBtn>
+            </Link>
+          </StyledProductBtnDiv>
         </div>
       )}
     </>

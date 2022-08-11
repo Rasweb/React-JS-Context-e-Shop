@@ -14,8 +14,8 @@ export const StyledProductsImg = styled.img`
 `;
 
 export const StyledCartImg = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 25%;
+  //  height: 100px;
 `;
 
 export const StyledCheckoutImg = styled.img`

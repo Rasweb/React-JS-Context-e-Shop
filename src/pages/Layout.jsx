@@ -25,7 +25,6 @@ export const Layout = () => {
           <Outlet></Outlet>
         </StyledLayoutUl>
       </main>
-      <footer>This is a footer</footer>
     </div>
   );
 };
