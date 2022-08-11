@@ -1,10 +1,14 @@
 import { StyledHomeUl } from "../styledComponents/StyledUl";
+import { Link } from "react-router-dom";
+import { StyledHomeBtn } from "../styledComponents/StyledButtons";
 
 export const Home = () => {
   return (
     <div>
       <h1>Welcome to my fake e-shop</h1>
-      <p>Press products to begin</p>
+      <Link to={"/products"}>
+        <StyledHomeBtn>Press here to begin</StyledHomeBtn>
+      </Link>
       <h2>This e-shop is created using React js</h2>
       <h4>On this site you can:</h4>
       <StyledHomeUl>

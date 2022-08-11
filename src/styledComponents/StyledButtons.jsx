@@ -38,3 +38,7 @@ export const StyledProductBtn = styled(StyledShowProductsBtn)`
 export const StyledProductBackBtn = styled(StyledProductBtn)`
   margin-left: -18%;
 `;
+
+export const StyledHomeBtn = styled(StyledProductBtn)`
+  width: 40vw;
+`;
