@@ -1,7 +1,11 @@
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
-import { StyledThankYouImg } from "../styledComponents/StyledImg";
 import { Link } from "react-router-dom";
+
+// Context
+import { CartContext } from "../contexts/CartContext";
+
+// Style components
+import { StyledThankYouImg } from "../styledComponents/StyledImg";
 import { StyledThankYouBtn } from "../styledComponents/StyledButtons";
 import { StyledThankYouDiv } from "../styledComponents/StyledDiv";
 import { StyledThankYouH4 } from "../styledComponents/StyledHeadline";

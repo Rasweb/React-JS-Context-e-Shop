@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+// Components
 import { ShowProducts } from "./ShowProducts";
 
 export const Products = () => {
-  //const [products, setProducts] = useState([]);
   const [products, setProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);

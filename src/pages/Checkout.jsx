@@ -1,11 +1,15 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+
+// Context
 import { CartContext } from "../contexts/CartContext";
+
+// Style components
 import { StyledCheckoutImg } from "../styledComponents/StyledImg";
 import { StyledCheckoutLi } from "../styledComponents/StyledLi";
 import { StyledCheckoutUl } from "../styledComponents/StyledUl";
 import { StyledCheckoutHeadline } from "../styledComponents/StyledHeadline";
 import { StyledCartButtonDiv } from "../styledComponents/StyledDiv";
-import { Link } from "react-router-dom";
 import { StyledCheckoutSubmitInput } from "../styledComponents/StyledInputs";
 import { StyledCartProductP } from "../styledComponents/StyledParagraph";
 import { StyledCartProduct } from "../styledComponents/StyledDiv";

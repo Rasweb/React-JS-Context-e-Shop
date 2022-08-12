@@ -3,6 +3,29 @@
 Fetch from
 [Fake Store Api](https://fakestoreapi.com/)
 
+// Change the names of these style components
+
+Showproducts.jsx
+// exist in another file
+import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
+
+Cart.jsx
+// exist in another file
+import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
+import { StyledCartProduct } from "../styledComponents/StyledDiv";
+import { StyledCartProductP } from "../styledComponents/StyledParagraph";
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+
+Checkout.jsx
+// exist in another file
+import { StyledCartProduct } from "../styledComponents/StyledDiv";
+import { StyledCartProductP } from "../styledComponents/StyledParagraph";
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+
+Product.jsx
+// exist in another file
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

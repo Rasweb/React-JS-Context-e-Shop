@@ -1,5 +1,11 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+// Context
 import { CartContext } from "../contexts/CartContext";
+
+// Style components
 import { StyledCartDiv } from "../styledComponents/StyledDiv";
 import { StyledModalDiv } from "../styledComponents/StyledDiv";
 import { StyledCartParagraph } from "../styledComponents/StyledParagraph";
@@ -14,8 +20,6 @@ import { StyledCartControllBtnDisabled } from "../styledComponents/StyledButtons
 import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
 import { StyledCartCheckoutBtn } from "../styledComponents/StyledButtons";
 import { StyledCartBtn } from "../styledComponents/StyledButtons";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);

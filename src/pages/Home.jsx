@@ -1,5 +1,7 @@
-import { StyledHomeUl } from "../styledComponents/StyledUl";
 import { Link } from "react-router-dom";
+
+// Style components
+import { StyledHomeUl } from "../styledComponents/StyledUl";
 import { StyledHomeBtn } from "../styledComponents/StyledButtons";
 
 export const Home = () => {

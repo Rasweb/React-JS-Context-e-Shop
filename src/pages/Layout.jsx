@@ -1,7 +1,11 @@
+import { Link, Outlet } from "react-router-dom";
+
+// Component
+import { Cart } from "./Cart";
+
+// Style components
 import { StyledLayoutUl } from "../styledComponents/StyledUl";
 import { StyledLayoutLi } from "../styledComponents/StyledLi";
-import { Link, Outlet } from "react-router-dom";
-import { Cart } from "./Cart";
 
 export const Layout = () => {
   return (

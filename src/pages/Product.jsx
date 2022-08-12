@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
+// Context
 import { CartContext } from "../contexts/CartContext";
+
+// Style components
 import { StyledProductDiv } from "../styledComponents/StyledDiv";
 import { StyledProductImg } from "../styledComponents/StyledImg";
 import { StyledProductBtn } from "../styledComponents/StyledButtons";

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+// Context
+import { CartContext } from "../contexts/CartContext";
+
+// Style components
 import { StyledProductsLi } from "../styledComponents/StyledLi";
 import { StyledProductsImg } from "../styledComponents/StyledImg";
 import { StyledProductsParagraph } from "../styledComponents/StyledParagraph";
-import { CartContext } from "../contexts/CartContext";
-import { useContext } from "react";
 import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 import { StyledHeadlineThree } from "../styledComponents/StyledHeadline";
 
