@@ -1,4 +1,5 @@
 import { StyledLayoutUl } from "../styledComponents/StyledUl";
+import { StyledLayoutLi } from "../styledComponents/StyledLi";
 import { Link, Outlet } from "react-router-dom";
 import { Cart } from "./Cart";
 
@@ -8,12 +9,12 @@ export const Layout = () => {
       <header>
         <nav>
           <StyledLayoutUl>
-            <li>
+            <StyledLayoutLi>
               <Link to="/">Home</Link>
-            </li>
-            <li>
+            </StyledLayoutLi>
+            <StyledLayoutLi>
               <Link to="/products">Products</Link>
-            </li>
+            </StyledLayoutLi>
             <li>
               <Cart></Cart>
             </li>

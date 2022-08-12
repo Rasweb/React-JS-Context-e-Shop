@@ -11,7 +11,11 @@ import { StyledCartButton } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtn } from "../styledComponents/StyledButtons";
 import { StyledShowProductsBtn } from "../styledComponents/StyledButtons";
 import { StyledCartControllBtnDisabled } from "../styledComponents/StyledButtons";
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+import { StyledCartCheckoutBtn } from "../styledComponents/StyledButtons";
+import { StyledCartBtn } from "../styledComponents/StyledButtons";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const [showCart, setShowCart] = useState(false);
@@ -28,6 +32,14 @@ export const Cart = () => {
       console.log("Cart open");
     }
   };
+
+  useEffect(() => {
+    console.log("New item added to cart");
+    setShowCart(true);
+    if (cart.length === 0) {
+      setShowCart(false);
+    }
+  }, [cart]);
 
   const removeFromCart = (id) => {
     const newCart = cart.filter((item) => item.id !== id);
@@ -99,12 +111,12 @@ export const Cart = () => {
                 &#8722;
               </StyledCartControllBtn>
             )}
-            <p>&#8364;{Math.round(item.price)}</p>
+            <StyledCartPriceP>&#8364;{Math.round(item.price)}</StyledCartPriceP>
             {/* Plus symbol */}
             <StyledCartControllBtn onClick={() => increase(index, item.id)}>
               &#43;
             </StyledCartControllBtn>
-            <p>Quantity: {item.quantity}</p>
+            <StyledCartPriceP>Quantity: {item.quantity}</StyledCartPriceP>
           </StyledCartProduct>
           <StyledShowProductsBtn onClick={() => removeFromCart(item.id)}>
             Remove
@@ -130,17 +142,17 @@ export const Cart = () => {
                   Total price: &#8364;{totalPrice}
                 </StyledCartParagraph>
                 <Link to={`/checkout`}>
-                  <StyledShowProductsBtn onClick={cartToggle}>
+                  <StyledCartCheckoutBtn onClick={cartToggle}>
                     To checkout
-                  </StyledShowProductsBtn>
+                  </StyledCartCheckoutBtn>
                 </Link>
               </>
             ) : (
               <Link to={`/products`}>
                 <p>Cart is empty</p>
-                <StyledShowProductsBtn onClick={cartToggle}>
+                <StyledCartCheckoutBtn onClick={cartToggle}>
                   Add products
-                </StyledShowProductsBtn>
+                </StyledCartCheckoutBtn>
               </Link>
             )}
           </StyledCartDiv>
@@ -149,11 +161,13 @@ export const Cart = () => {
         <>
           {cart.length >= 1 ? (
             <div>
-              <button onClick={cartToggle}>Cart, {cart.length}</button>
+              <StyledCartBtn onClick={cartToggle}>
+                Cart, {cart.length}
+              </StyledCartBtn>
             </div>
           ) : (
             <div>
-              <button onClick={cartToggle}>Cart</button>
+              <StyledCartBtn onClick={cartToggle}>Cart</StyledCartBtn>
             </div>
           )}
         </>

@@ -25,5 +25,8 @@ export const StyledCheckoutLi = styled.li`
 `;
 
 export const StyledLayoutLi = styled.li`
-  display: none;
+  font-size: 18px;
+  @media screen and (min-width: 1024px) {
+    font-size: 20px;
+  }
 `;

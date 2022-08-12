@@ -12,6 +12,9 @@ import { StyledCartProduct } from "../styledComponents/StyledDiv";
 import { StyledCheckoutDiv } from "../styledComponents/StyledDiv";
 import { StyledCheckoutInputs } from "../styledComponents/StyledInputs";
 import { StyledCheckoutForm } from "../styledComponents/StyledForms";
+import { StyledCheckoutProductP } from "../styledComponents/StyledParagraph";
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+import { StyledCheckoutLabel } from "../styledComponents/StyledLabels";
 
 export const Checkout = () => {
   const [cart] = useContext(CartContext);
@@ -25,8 +28,12 @@ export const Checkout = () => {
           <StyledCartProductP>{product.name}</StyledCartProductP>
         </StyledCartProduct>
         <StyledCheckoutDiv>
-          <p>Cost: &#8364;{Math.round(product.price)}</p>
-          <p>Quantity: {product.quantity}</p>
+          <StyledCheckoutProductP>
+            Cost: &#8364;{Math.round(product.price)}
+          </StyledCheckoutProductP>
+          <StyledCheckoutProductP>
+            Quantity: {product.quantity}
+          </StyledCheckoutProductP>
         </StyledCheckoutDiv>
       </StyledCheckoutLi>
     );
@@ -58,7 +65,7 @@ export const Checkout = () => {
         <div>
           <StyledCheckoutForm onSubmit={handleSubmit}>
             <div>
-              <label>
+              <StyledCheckoutLabel>
                 Email Address
                 <StyledCheckoutInputs
                   type="email"
@@ -67,9 +74,9 @@ export const Checkout = () => {
                   required
                   onChange={(event) => handleUserInput(event)}
                 />
-              </label>
+              </StyledCheckoutLabel>
               <br />
-              <label>
+              <StyledCheckoutLabel>
                 Postal Number
                 <StyledCheckoutInputs
                   type="number"
@@ -78,24 +85,28 @@ export const Checkout = () => {
                   required
                   onChange={(event) => handleUserInput(event)}
                 />
-              </label>
+              </StyledCheckoutLabel>
             </div>
             <StyledCartButtonDiv>
-              <p>All delivery options 4&#8364;, 1 - 3 days shipping</p>
-              <label htmlFor="home">
+              <StyledCartPriceP>
+                All delivery options 4&#8364;, 1 - 3 days shipping
+              </StyledCartPriceP>
+              <StyledCheckoutLabel htmlFor="home">
                 Home delivery
                 <input type="radio" id="home" name="shipping" />
-              </label>
-              <label htmlFor="point">
+              </StyledCheckoutLabel>
+              <StyledCheckoutLabel htmlFor="point">
                 Delivery point
                 <input type="radio" id="point" name="shipping" defaultChecked />
-              </label>
-              <label htmlFor="parcel">
+              </StyledCheckoutLabel>
+              <StyledCheckoutLabel htmlFor="parcel">
                 Parcel locker
                 <input type="radio" id="parcel" name="shipping" />
-              </label>
+              </StyledCheckoutLabel>
             </StyledCartButtonDiv>
-            <p> Total price: &#8364;{Math.round(totalPrice + 4)}</p>
+            <StyledCartPriceP>
+              Total price: &#8364;{Math.round(totalPrice + 4)}
+            </StyledCartPriceP>
             {validation ? (
               <Link to={`/thankyou`}>
                 <StyledCheckoutSubmitInput

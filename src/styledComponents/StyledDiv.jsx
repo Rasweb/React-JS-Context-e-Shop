@@ -29,9 +29,7 @@ export const StyledModalDiv = styled.div`
 
   border: 1px solid #888;
   @media screen and (min-width: 1024px) {
-    justify-content: center;
-    width: 22vw;
-    margin: auto;
+    width: 25vw;
     border: 1px solid #888;
   }
 `;
@@ -40,6 +38,9 @@ export const StyledCartProduct = styled.div`
   display: flex;
   flex-direction: row;
   width: 42vh;
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const StyledCartContainer = styled.div`
@@ -49,12 +50,24 @@ export const StyledCartContainer = styled.div`
 export const StyledCartButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
 `;
 
 export const StyledCheckoutDiv = styled(StyledCartProduct)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const StyledThankYouDiv = styled(StyledCheckoutDiv)`
+  margin-top: 3%;
+  border-bottom: 1px solid #e7f6f2;
+  flex-direction: column;
+  @media screen and (min-width: 1024px) {
+    margin-top: 3%;
+    border-bottom: 1px solid #e7f6f2;
+    flex-direction: row;
+  }
 `;
 
 export const StyledProductBtnDiv = styled.div`

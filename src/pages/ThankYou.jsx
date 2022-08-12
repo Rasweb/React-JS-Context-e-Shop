@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import { StyledCheckoutImg } from "../styledComponents/StyledImg";
+import { StyledThankYouImg } from "../styledComponents/StyledImg";
 import { Link } from "react-router-dom";
 import { StyledThankYouBtn } from "../styledComponents/StyledButtons";
+import { StyledThankYouDiv } from "../styledComponents/StyledDiv";
+import { StyledThankYouH4 } from "../styledComponents/StyledHeadline";
+import { StyledThankYouH1 } from "../styledComponents/StyledHeadline";
+import { StyledThankYouH2 } from "../styledComponents/StyledHeadline";
 
 export const ThankYou = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -15,18 +19,18 @@ export const ThankYou = () => {
 
   const boughtCart = cart.map((product) => {
     return (
-      <div key={product.id}>
+      <StyledThankYouDiv key={product.id}>
+        <StyledThankYouImg src={product.image} alt={product.name} />
         <h3>{product.name}</h3>
-        <h4>&#8364;{product.price}</h4>
-        <StyledCheckoutImg src={product.image} alt={product.name} />
-      </div>
+        <StyledThankYouH4>&#8364;{product.price}</StyledThankYouH4>
+      </StyledThankYouDiv>
     );
   });
 
   return (
     <>
-      <h1>Thank you for your order</h1>
-      <h2>Total price: &#8364;{totalPrice}</h2>
+      <StyledThankYouH1>Thank you for your order</StyledThankYouH1>
+      <StyledThankYouH2>Total price: &#8364;{totalPrice}</StyledThankYouH2>
       <Link to={"/"}>
         <StyledThankYouBtn onClick={clearCart}>Back to home</StyledThankYouBtn>
       </Link>

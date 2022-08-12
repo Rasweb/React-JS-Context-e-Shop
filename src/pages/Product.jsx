@@ -3,10 +3,13 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { StyledProductDiv } from "../styledComponents/StyledDiv";
-import { StyledProductsImg } from "../styledComponents/StyledImg";
+import { StyledProductImg } from "../styledComponents/StyledImg";
 import { StyledProductBtn } from "../styledComponents/StyledButtons";
 import { StyledProductBtnDiv } from "../styledComponents/StyledDiv";
 import { StyledProductBackBtn } from "../styledComponents/StyledButtons";
+import { StyledProductH3 } from "../styledComponents/StyledHeadline";
+import { StyledCartPriceP } from "../styledComponents/StyledParagraph";
+import { StyledProductP } from "../styledComponents/StyledParagraph";
 
 export const Product = () => {
   const [product, setProduct] = useState({
@@ -20,7 +23,6 @@ export const Product = () => {
   });
 
   const [isLoading, setIsLoading] = useState(true);
-
   const [cart, setCart] = useContext(CartContext);
 
   let params = useParams();
@@ -56,19 +58,31 @@ export const Product = () => {
       ) : (
         <div>
           <StyledProductDiv>
-            <h3>{product.title}</h3>
-            <p>Category: {product.category}</p>
-            <StyledProductsImg src={product.image} alt={product.title} />
-            <p>&#8364;{Math.round(product.price)}</p>
-            <p className="descCont">{product.description}</p>
+            <StyledProductH3>{product.title}</StyledProductH3>
+            <StyledProductP>Category: {product.category}</StyledProductP>
+            <StyledProductImg src={product.image} alt={product.title} />
+            <StyledCartPriceP>
+              &#8364;{Math.round(product.price)}
+            </StyledCartPriceP>
+            <StyledProductP className="descCont">
+              {product.description}
+            </StyledProductP>
             {cart.length >= 1 ? (
-              <Link to="/checkout">
-                <StyledProductBtn>To checkout</StyledProductBtn>
-              </Link>
+              <>
+                <Link to="/checkout">
+                  <StyledProductBtn>To checkout</StyledProductBtn>
+                </Link>
+                <Link to="/products">
+                  <StyledProductBtn>Products</StyledProductBtn>
+                </Link>
+              </>
             ) : (
-              <></>
+              <>
+                <StyledProductBtn onClick={addToCart}>
+                  Add to Cart
+                </StyledProductBtn>
+              </>
             )}
-            <StyledProductBtn onClick={addToCart}>Add to Cart</StyledProductBtn>
           </StyledProductDiv>
           <StyledProductBtnDiv>
             <Link to="/products">
