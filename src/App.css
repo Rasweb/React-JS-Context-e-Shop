@@ -8,6 +8,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  border: 1px solid #e7f6f2;
+button:focus {
+  color: chartreuse;
 }
