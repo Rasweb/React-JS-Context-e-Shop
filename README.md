@@ -1,7 +1,7 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [React JS Context Eshop](#reactjs-context-eshop)
+  - [React JS Context Eshop](#react-js-context-eshop)
   - [Project setup](#project-setup)
   - [Built with](#built-with)
   - [Screenshot](#screenshot)
@@ -10,6 +10,11 @@
 ## Overview
 
 ### React JS Context Eshop
+
+When you are on the website, press the home button to begin.
+
+Live project:
+[Website](https://rasweb.github.io/React-JS-Context-e-Shop)
 
 This is a project created using React with Javascript.
 I created this project because I wanted to practice on context and React JS.
